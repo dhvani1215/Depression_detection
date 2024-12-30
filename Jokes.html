@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            width: 450px;
+            padding: 22px;
+            margin-left: 30%;
+           text-align: center;
+           background-color: plum;
+           color:black;
+           font-size: 20px;
+           font-family: 'Mulish', sans-serif;
+           margin-top: 3%;
+           background-color: plum;
+        
+        }
+        img{
+            width: 20%;
+        }
+        button{
+            width: 130px;
+            height: 38px;
+            border: none;
+            font-size: 24px;
+            padding: 5px;
+            outline: none;
+            cursor: pointer;
+            background-color: purple;
+            color: white;
+            border-radius: 4px;
+        }
+
+      
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Catamaran:wght@200&family=Courgette&family=Edu+TAS+Beginner:wght@700&family=Lato:wght@300;900&family=Mukta:wght@700&family=Mulish:wght@300&family=Open+Sans&family=PT+Sans:ital,wght@1,700&family=Poppins:wght@300&family=Raleway:wght@100&family=Roboto+Condensed:wght@700&family=Roboto+Slab&family=Roboto:wght@300&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="container">
+        <img src="smile.png" alt="">
+        <h3 id="joke"></h3>
+        <button onclick="getJoke()">Get Joke's</button>
+    </div>
+
+
+
+    <script>
+        let joke = document.getElementById("joke");
+ 
+async function getJoke(){
+    let getting = await fetch("https://icanhazdadjoke.com/",{
+        headers:{
+            accept :" application/json" ,
+        },
+    });
+    let res =await getting.json();
+    let jk = res.joke;
+    joke.innerHTML=jk;
+    
+}
+getJoke();
+    </script>
+</body>
+</html>
